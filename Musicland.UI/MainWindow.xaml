@@ -1,0 +1,24 @@
+﻿<Window x:Class="Musicland.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Musicland.UI"
+        mc:Ignorable="d"
+        Title="MusicLand" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Name="textBoxName" Width="150" Height="30" Margin="10,-100,0,0" HorizontalAlignment="Left"/>
+        <Button Name="buttonAlbums" Content="Show albums" Width="80" Height="30" Margin="10,0,0,0" HorizontalAlignment="Left" Click="buttonAlbums_Click"/>
+        <ListBox Name="listBoxAlbums" Grid.Row="1" Margin="10" DisplayMemberPath="Info" SelectionChanged="listBoxAlbums_SelectionChanged"/>
+        <ListBox Name="listBoxSongs" Grid.Row="1" Grid.Column="1" Margin="10" DisplayMemberPath="Info"/>
+        <Button Name="buttonConcerts" Grid.Column="1" Content="Concerts" Width="80" Height="30" Click="buttonConcerts_Click"/>
+    </Grid>
+</Window>
