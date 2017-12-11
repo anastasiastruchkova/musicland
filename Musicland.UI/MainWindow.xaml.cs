@@ -42,7 +42,7 @@ namespace Musicland.UI
 
         private void listBoxAlbums_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //fjkkf
+            //kdfkfs
 
             var item = listBoxAlbums.SelectedItem as Album;
             foreach(Album album in albumRepository.Albums)
