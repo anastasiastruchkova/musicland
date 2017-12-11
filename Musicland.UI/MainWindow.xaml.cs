@@ -21,72 +21,34 @@ namespace Musicland.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        Musician musician;
+        MusicianRepository musicianRepository = new MusicianRepository();
+        AlbumRepository albumRepository = new AlbumRepository();
         public MainWindow()
         {
             InitializeComponent();
-
-            musician =
-                new Musician
-                {
-                    Name = "Lady Gaga",
-                    Albums = new List<Album>
-                    {
-                        new Album
-                        {
-                            Name ="The Fame",
-                            Year =2008,
-                            Genre ="Pop",
-                            Songs = new List<Song>
-                            {
-                                new Song { Title="Poker Face", Duration=240 },
-                                new Song { Title="Paparazzi", Duration=200 }
-                            }
-                        },
-                        new Album
-                        {
-                            Name ="Joanne",
-                            Year =2016,
-                            Genre ="Pop",
-                            Songs = new List<Song>
-                            {
-                                new Song { Title="Million Reasons", Duration=233 },
-                                new Song { Title="Joanne", Duration=210 }
-                            }
-                        }
-                    }
-                };
-            musician.Concerts = new List<Concert>
-            {
-                new Concert
-                {
-                  City = "Moscow",
-                  Date = new DateTime(2017, 11, 1),
-                  Tickets = 123,
-                  Album = musician.Albums[0]
-                },
-                new Concert
-                {
-                  City = "Las Vegas",
-                  Date = new DateTime(2017, 10, 11),
-                  Tickets = 54,
-                  Album = musician.Albums[1]
-                }
-            };
         }
 
         private void buttonAlbums_Click(object sender, RoutedEventArgs e)
         {
-            if (textBoxName.Text == "Lady Gaga")
+            foreach(Musician musician in musicianRepository.Musicians)
             {
-                listBoxAlbums.ItemsSource = musician.Albums;
+                if (textBoxName.Text == "Lady Gaga")
+                {
+                    listBoxAlbums.ItemsSource = musician.Albums;
+                }
             }
+           
         }
 
         private void listBoxAlbums_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             var item=listBoxAlbums.SelectedItem as Album;
-            listBoxSongs.ItemsSource = item.Songs;
+            foreach(Album album in albumRepository.Albums)
+            {
+                if (item==album) listBoxSongs.ItemsSource = album.Songs;
+            }
+            
         }
 
         private void buttonConcerts_Click(object sender, RoutedEventArgs e)
