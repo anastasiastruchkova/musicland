@@ -15,7 +15,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox Name="textBoxName" Width="150" Height="30" Margin="10,-100,0,0" HorizontalAlignment="Left"/>
+        <ComboBox Name="comboBoxName" Width="150" Height="30" DisplayMemberPath="Name" Margin="10,-100,0,0" HorizontalAlignment="Left"/>
         <Button Name="buttonAlbums" Content="Show albums" Width="80" Height="30" Margin="10,0,0,0" HorizontalAlignment="Left" Click="buttonAlbums_Click"/>
         <ListBox Name="listBoxAlbums" Grid.Row="1" Margin="10" DisplayMemberPath="Info" SelectionChanged="listBoxAlbums_SelectionChanged"/>
         <ListBox Name="listBoxSongs" Grid.Row="1" Grid.Column="1" Margin="10" DisplayMemberPath="Info"/>

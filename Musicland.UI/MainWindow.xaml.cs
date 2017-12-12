@@ -26,29 +26,36 @@ namespace Musicland.UI
         public MainWindow()
         {
             InitializeComponent();
+            foreach(Musician musician in musicianRepository.Musicians)
+            {
+                comboBoxName.Items.Add(musician);
+            }
         }
 
         private void buttonAlbums_Click(object sender, RoutedEventArgs e)
         {
-            foreach(Musician musician in musicianRepository.Musicians)
+            if (comboBoxName.SelectedItem != null)
             {
-                if (textBoxName.Text == "Lady Gaga")
+                var item = comboBoxName.SelectedItem as Musician;
+                foreach (Musician musician in musicianRepository.Musicians)
                 {
-                    listBoxAlbums.ItemsSource = musician.Albums;
+                    if (item.Name == musician.Name)
+                    {
+                        listBoxAlbums.ItemsSource = musician.Albums;
+                    }
                 }
             }
+            else MessageBox.Show("Choose a musician!");
            
         }
 
         private void listBoxAlbums_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //ddjhdvcd
-            //vfjvjd
 
             var item = listBoxAlbums.SelectedItem as Album;
             foreach(Album album in albumRepository.Albums)
             {
-                if (item==album) listBoxSongs.ItemsSource = album.Songs;
+                if (item.Name==album.Name) listBoxSongs.ItemsSource = album.Songs;
             }
             
         }
@@ -56,8 +63,8 @@ namespace Musicland.UI
         private void buttonConcerts_Click(object sender, RoutedEventArgs e)
         {
             ConcertWindow concertWindow = new ConcertWindow();
-            if (textBoxName != null) concertWindow.ShowDialog();
-            else MessageBox.Show("Fill in the textbox!");
+            if (comboBoxName != null) concertWindow.ShowDialog();
+            else MessageBox.Show("Choose a musician!");
         }
     }
 }
