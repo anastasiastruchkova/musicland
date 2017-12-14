@@ -92,6 +92,7 @@ namespace Musicland.UI
         {
             listBoxAlbums.ItemsSource = null;
             listBoxSongs.ItemsSource = null;
+            //kbmb
         }
     }
 }
