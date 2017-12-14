@@ -19,13 +19,17 @@ namespace Musicland.UI
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    /// 
+
     public partial class MainWindow : Window
     {
         MusicianRepository musicianRepository = new MusicianRepository();
         AlbumRepository albumRepository = new AlbumRepository();
+
         public MainWindow()
         {
             InitializeComponent();
+            mediaElementBeatles.Play();
             foreach(Musician musician in musicianRepository.Musicians)
             {
                 comboBoxName.Items.Add(musician);
@@ -46,25 +50,48 @@ namespace Musicland.UI
                 }
             }
             else MessageBox.Show("Choose a musician!");
-           
         }
 
         private void listBoxAlbums_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             var item = listBoxAlbums.SelectedItem as Album;
-            foreach(Album album in albumRepository.Albums)
+            if (item != null)
             {
-                if (item.Name==album.Name) listBoxSongs.ItemsSource = album.Songs;
+                foreach (Album album in albumRepository.Albums)
+                {
+                    if (item.Name == album.Name) listBoxSongs.ItemsSource = album.Songs;
+                }
             }
-            
         }
 
         private void buttonConcerts_Click(object sender, RoutedEventArgs e)
         {
-            ConcertWindow concertWindow = new ConcertWindow();
-            if (comboBoxName != null) concertWindow.ShowDialog();
+            if (comboBoxName != null)
+            {
+                ConcertWindow concertWindow = new ConcertWindow();
+                concertWindow.musician = comboBoxName.SelectedItem as Musician;
+                concertWindow.listBoxConcerts.ItemsSource = concertWindow.musician.Concerts;
+                concertWindow.ShowDialog();
+            }
             else MessageBox.Show("Choose a musician!");
+        }
+
+        private void buttonCRUD_Click(object sender, RoutedEventArgs e)
+        {
+            if (comboBoxName != null)
+            {
+                CRUDWindow crudWindow = new CRUDWindow();
+                crudWindow.musician = comboBoxName.SelectedItem as Musician;
+                crudWindow.listboxAlbums.ItemsSource = crudWindow.musician.Albums;
+                crudWindow.ShowDialog();
+            }
+            else MessageBox.Show("Choose a musician!");
+        }
+
+        private void comboBoxName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            listBoxAlbums.ItemsSource = null;
+            listBoxSongs.ItemsSource = null;
         }
     }
 }

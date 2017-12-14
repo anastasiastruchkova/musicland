@@ -8,6 +8,7 @@ namespace Musicland.Classes
 {
     public class Album
     {
+        
         public int Id { get; set; }
         public string Name { get; set; }
         public int Year { get; set; }
@@ -17,7 +18,7 @@ namespace Musicland.Classes
 
         public string Info
         {
-            get { return $"{Name} ({Year})"; }
+            get { return $"{Name} ({Year}) {Genre} "; }
         }
     }
 }

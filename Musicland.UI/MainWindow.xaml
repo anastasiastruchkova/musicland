@@ -5,20 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Musicland.UI"
         mc:Ignorable="d"
-        Title="MusicLand" Height="350" Width="525">
+        Title="MusicLand" Height="350" Width="600" WindowStartupLocation="CenterScreen" Background="#FFB5C5B7">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <ComboBox Name="comboBoxName" Width="150" Height="30" DisplayMemberPath="Name" Margin="10,-100,0,0" HorizontalAlignment="Left"/>
-        <Button Name="buttonAlbums" Content="Show albums" Width="80" Height="30" Margin="10,0,0,0" HorizontalAlignment="Left" Click="buttonAlbums_Click"/>
+        <ComboBox Name="comboBoxName" Width="150" Height="30" DisplayMemberPath="Name" Margin="10,-50,0,0" HorizontalAlignment="Left" SelectionChanged="comboBoxName_SelectionChanged"/>
+        <Button Name="buttonAlbums" Content="Show albums" Width="80" Height="30" Margin="10,40,0,0" HorizontalAlignment="Left" Click="buttonAlbums_Click"/>
         <ListBox Name="listBoxAlbums" Grid.Row="1" Margin="10" DisplayMemberPath="Info" SelectionChanged="listBoxAlbums_SelectionChanged"/>
         <ListBox Name="listBoxSongs" Grid.Row="1" Grid.Column="1" Margin="10" DisplayMemberPath="Info"/>
-        <Button Name="buttonConcerts" Grid.Column="1" Content="Concerts" Width="80" Height="30" Click="buttonConcerts_Click"/>
+        <Button Name="buttonCRUD" Content="CRUD" Grid.Column="1" Width="80" Height="30" Margin="0,40,0,0" Click="buttonCRUD_Click"/>
+        <Button Name="buttonConcerts" Grid.Column="1" Content="Concerts" Width="80" Height="30" Margin="0,-40,0,0" Click="buttonConcerts_Click"/>
+
+        <MediaElement Name="mediaElementBeatles" Source="..//..//Songs/The Beatles - Let It Be.mp3" LoadedBehavior="Manual"/>
     </Grid>
 </Window>

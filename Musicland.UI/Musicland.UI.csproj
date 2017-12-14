@@ -65,6 +65,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CRUDWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditSongWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +83,12 @@
     </Compile>
     <Compile Include="ConcertWindow.xaml.cs">
       <DependentUpon>ConcertWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CRUDWindow.xaml.cs">
+      <DependentUpon>CRUDWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditSongWindow.xaml.cs">
+      <DependentUpon>EditSongWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -113,6 +127,9 @@
       <Project>{6be612b6-0083-4802-97f3-b9e9632c5ca1}</Project>
       <Name>Musicland.Classes</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Songs\The Beatles - Let It Be.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -47,7 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlbumRepository.cs" />
+    <Compile Include="Repositories\AlbumRepository.cs" />
+    <Compile Include="Repositories\ConcertRepository.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Migrations\201712111314304_Initial.cs" />
     <Compile Include="Migrations\201712111314304_Initial.Designer.cs">
@@ -59,7 +60,8 @@
     <Compile Include="Models\Musician.cs" />
     <Compile Include="Models\Song.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MusicianRepository.cs" />
+    <Compile Include="Repositories\MusicianRepository.cs" />
+    <Compile Include="Repositories\SongRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
