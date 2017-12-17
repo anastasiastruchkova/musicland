@@ -28,6 +28,8 @@ namespace Musicland.UI
             InitializeComponent();
             listBoxConcerts.ItemsSource = concertRepository.Concerts;
             comboBoxSearch.Items.Add("City");
+            comboBoxSearch.Items.Add("Month");
+            comboBoxSearch.Items.Add("Year");
         }
 
         private void buttonTicket_Click(object sender, RoutedEventArgs e)
@@ -69,14 +71,47 @@ namespace Musicland.UI
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
-            if(comboBoxSearch.Text=="City")
+            if ((comboBoxSearch.Text != null) || (textBoxSearch.Text!=null))
             {
-                var city = textBoxSearch.Text;
-                listBoxConcerts.ItemsSource = null;
-                listBoxConcerts.ItemsSource = concertRepository.Search(city).Where(c => c.Musician.Id == musician.Id);
-                
-                comboBoxSearch.Text = null;
-                textBoxSearch.Text = null;
+                if (comboBoxSearch.Text == "City")
+                {                   
+                    var city = textBoxSearch.Text;
+                    listBoxConcerts.ItemsSource = null;
+                    listBoxConcerts.ItemsSource = concertRepository.SearchCity(city).Where(c => c.Musician.Id == musician.Id);
+
+                    comboBoxSearch.Text = null;
+                    textBoxSearch.Text = null;
+                }
+
+                if (comboBoxSearch.Text == "Month")
+                {
+                    var month = textBoxSearch.Text;
+                    if (int.Parse(month) >= 1 || int.Parse(month) <= 12)
+                    {
+                        listBoxConcerts.ItemsSource = null;
+                        listBoxConcerts.ItemsSource = concertRepository.SearchMonth(month).Where(m => m.Musician.Id == musician.Id);
+                        comboBoxSearch.Text = null;
+                        textBoxSearch.Text = null;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Enter a number in the range from 1 to 12");
+                    }
+                }
+                if (comboBoxSearch.Text == "Year")
+                {
+                    var year = textBoxSearch.Text;
+                    listBoxConcerts.ItemsSource = null;
+                    listBoxConcerts.ItemsSource = concertRepository.SearchYear(year).Where(y => y.Musician.Id == musician.Id);
+
+                    comboBoxSearch.Text = null;
+                    textBoxSearch.Text = null;
+                }
+               
+            }
+            else
+            {
+                MessageBox.Show("Choose a parametr or fill in a textbox");
             }
         }
 

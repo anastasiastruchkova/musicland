@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Musicland.Classes;
+using System.IO;
 
 namespace Musicland.UI
 {
@@ -29,8 +30,9 @@ namespace Musicland.UI
         public MainWindow()
         {
             InitializeComponent();
-            
-            foreach(Musician musician in musicianRepository.Musicians)
+           
+
+            foreach (Musician musician in musicianRepository.Musicians)
             {
                 comboBoxName.Items.Add(musician);
             }
@@ -93,7 +95,7 @@ namespace Musicland.UI
         {
             listBoxAlbums.ItemsSource = null;
             listBoxSongs.ItemsSource = null;
-            //fbvjf
+           
         }
     }
 }

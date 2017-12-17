@@ -29,7 +29,7 @@ namespace Musicland.Classes
             }
         }
 
-        public List<Concert> Search(string city)
+        public List<Concert> SearchCity(string city)
         {
             List<Concert> concerts = new List<Concert>();
             foreach(Concert concert in Concerts)
@@ -38,5 +38,28 @@ namespace Musicland.Classes
             }
             return concerts;
         }
+
+        public List<Concert> SearchMonth(string month)
+        {
+            List<Concert> concerts = new List<Concert>();
+            foreach (Concert concert in Concerts)
+            {
+                if (concert.Date.Month == int.Parse(month))
+                    concerts.Add(concert);
+            }
+            return concerts;
+        }
+
+        public List<Concert> SearchYear(string year)
+        {
+            List<Concert> concerts = new List<Concert>();
+            foreach (Concert concert in Concerts)
+            {
+                if (concert.Date.Year == int.Parse(year))
+                    concerts.Add(concert);
+            }
+            return concerts;
+        }
+
     }
 }

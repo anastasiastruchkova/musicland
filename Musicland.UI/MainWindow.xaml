@@ -56,5 +56,6 @@
         </ListBox>
         <Button Name="buttonCRUD" Content="CRUD" Grid.Column="1"  Width="80" Height="30" Margin="100,-60,0,-30" Click="buttonCRUD_Click"/>
         <Button Name="buttonConcerts" Grid.Column="1" Content="Concerts" Width="80" Height="30" Margin="-100,-60,0,-30" Click="buttonConcerts_Click"/>
+        
     </Grid>
 </Window>
