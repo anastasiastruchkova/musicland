@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Musicland.UI"
         mc:Ignorable="d"
-        Title="ConcertWindow" Height="267" Width="300">
+        Title="ConcertWindow" Height="300" Width="400" WindowStartupLocation="Manual" Top="150" Left="900">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Button Name="buttonTicket" Content="Buy a ticket" Margin="30"/>
-        <ListBox Name="listBoxConcerts" Margin="10" Grid.Row="1"/>
+        <Button Name="buttonTicket" Content="Buy a ticket" Margin="25" Click="buttonTicket_Click"/>
+        <ListBox Name="listBoxConcerts" Margin="10" Grid.Row="1" DisplayMemberPath="Info"/>
     </Grid>
 </Window>

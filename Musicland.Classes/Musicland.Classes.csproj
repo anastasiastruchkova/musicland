@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlbumRepository.cs" />
+    <Compile Include="ConcertRepository.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Migrations\201712111314304_Initial.cs" />
     <Compile Include="Migrations\201712111314304_Initial.Designer.cs">

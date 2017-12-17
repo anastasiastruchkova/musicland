@@ -15,7 +15,10 @@ namespace Musicland.Classes
             {
                 using (var context = new Context())
                 {
-                    return context.Musicians.Include(m => m.Albums).ToList();
+                    return context.Musicians
+                        .Include(m => m.Albums)
+                        .Include(m=>m.Concerts)
+                        .ToList();
                 }
             }
         }

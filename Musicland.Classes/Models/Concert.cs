@@ -14,5 +14,13 @@ namespace Musicland.Classes
         public Musician Musician { get; set; }
         public DateTime Date { get; set; }
         public int Tickets { get; set; }
+
+        public string Info
+        {
+            get
+            {
+                return $"Date: {Date}  City: {City}  Number of tickets: {Tickets}";
+            }
+        }
     }
 }

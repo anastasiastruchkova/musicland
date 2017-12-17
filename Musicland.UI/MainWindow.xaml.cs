@@ -1,30 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Musicland.Classes;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Musicland.Classes;
 
 namespace Musicland.UI
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    /// 
+
+    //public delegate void GetMusician(Musician artist);
+
     public partial class MainWindow : Window
     {
+
         MusicianRepository musicianRepository = new MusicianRepository();
         AlbumRepository albumRepository = new AlbumRepository();
+
+        
+        //public GetMusician OnGetMusician;
+
         public MainWindow()
         {
+
             InitializeComponent();
             foreach(Musician musician in musicianRepository.Musicians)
             {
@@ -66,5 +64,20 @@ namespace Musicland.UI
             if (comboBoxName != null) concertWindow.ShowDialog();
             else MessageBox.Show("Choose a musician!");
         }
+
+        private void buttonCRUD_Click(object sender, RoutedEventArgs e)
+        {
+            CRUDWindow crudWindow = new CRUDWindow();
+            if (comboBoxName != null)
+            {
+                //crudWindow.albumRepository.Albums=albumRepository.MusicianAlbums(comboBoxName.SelectedItem as Musician);
+                //artist = comboBoxName.SelectedItem as Musician;
+                //OnGetMusician?.Invoke(comboBoxName.SelectedItem as Musician);
+                crudWindow.ShowDialog();
+            }
+            else MessageBox.Show("Choose a musician!");
+        }
+
+        
     }
 }
