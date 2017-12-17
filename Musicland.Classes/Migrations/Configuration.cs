@@ -203,7 +203,7 @@ namespace Musicland.Classes.Migrations
                 new Concert
                 {
                   City = "Amsterdam",
-                  Date = new DateTime(1989, 03, 28, 14,0,0),
+                  Date = new DateTime(1989, 03, 28, 14,10,0),
                   Tickets = 3,
                   Album = Albums[9]
                 },
